@@ -21,23 +21,18 @@ const NavButton = ({ title, customFunc, icon, color, dotColor })  => (
           className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
         >
           {icon}
-
         </span>
     </button>
   </TooltipComponent>
 )
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, handleClick } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } = useStateContext();
 
   return (
     <div className="flex justify-between p-2 md:mx relative">
       <NavButton  
-        title="Menu" 
-        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
-        color="blue" 
-        icon={<AiOutlineMenu />} 
-      />
+        title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color="blue" icon={<AiOutlineMenu />} />
 
       <div className="flex">
         <NavButton  
@@ -83,7 +78,12 @@ const Navbar = () => {
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14"/>
           </div>  
-        </TooltipComponent>    
+        </TooltipComponent>   
+
+        {isClicked.cart && <Cart />} 
+        {isClicked.chat && <Chat />} 
+        {isClicked.notification && <Notification />} 
+        {isClicked.userProfile && <UserProfile />} 
       </div>
     </div>
   )

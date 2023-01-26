@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext ();
 
-const intialState = {
+const initialState = {
     chat: false,
     cart: false,
     userProfile: false,
@@ -11,7 +11,9 @@ const intialState = {
 
 export const ContextProvider = ({ children }) => {
     const [activeMenu, setActiveMenu] = useState (true);
+    const [isClicked, setisClicked] = useState (initialState);
 
+    const handleClick = (clicked) => setisClicked({ ...initialState, [clicked]:true});
     
     
     return (
@@ -19,6 +21,7 @@ export const ContextProvider = ({ children }) => {
             value={{ 
                 activeMenu,
                 setActiveMenu,
+                isClicked, setisClicked
             }}
         >
             {children}
