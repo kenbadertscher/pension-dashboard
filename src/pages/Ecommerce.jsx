@@ -100,7 +100,7 @@ const Ecommerce = () => {
                   Budget
                 </p>
               </div>
-
+              
               <div className="mt-8"> 
                 <p> 
                   <span className="text-3xl font-semibold"> 
@@ -124,8 +124,24 @@ const Ecommerce = () => {
                 />
               </div>
 
-                {/* Button goes here */}
+              <div className="mt-10">
+                <Button
+                  color="white"
+                  bgColor="blue"
+                  text="Download Report"
+                  borderRadius="10px"
+                />
+              </div>
+
             </div>
+
+            <div>
+              <Stacked 
+                width="320px" 
+                height="360px"
+              />
+            </div>
+
           </div>
 
         </div>
