@@ -8,11 +8,11 @@ import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/contextprovider';
 
 const Sidebar = () => {
-  const { activeMenu, setAtiveMenu, screenSize, currentColor } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if(activeMenu && screenSize <= 900) {
-      setAtiveMenu(false)
+      setActiveMenu(false)
     }
   }
 
@@ -30,7 +30,7 @@ const Sidebar = () => {
         </Link>
         <TooltipComponent content="Menu" position="BottomCenter">
             <button type="button"
-              onClick={() => setAtiveMenu((prevActiveMenu) => !prevActiveMenu)}
+              onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
               className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
             >
               <MdOutlineCancel />

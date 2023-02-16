@@ -29,11 +29,22 @@ export const ContextProvider = ({ children }) => {
     setThemeSettings(false);
   };
 
-  const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
+  const handleClick = (clicked) => {
+    setIsClicked({ ...initialState, [clicked]: true });
+  }
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <StateContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>
+    <StateContext.Provider value={{ 
+      currentColor, setCurrentColor, setColor,
+      currentMode, setCurrentMode, setMode,
+      themeSettings, setThemeSettings,
+      activeMenu, setActiveMenu, 
+      screenSize, setScreenSize, 
+      handleClick, 
+      isClicked, setIsClicked, 
+      initialState, 
+      }}>
       {children}
     </StateContext.Provider>
   );
